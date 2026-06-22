@@ -1,0 +1,736 @@
+/* ── 1. GLOBAL RESETS & VARIABLES ── */
+
+/* Reset margins, paddings, and set box-sizing for all elements */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Global color palette and design tokens (CSS Variables) */
+:root {
+    --y: #f5c400;           /* Theme Yellow */
+    --g: #00e676;           /* Theme Green */
+    --o: #ff5722;           /* Theme Orange */
+    --c: #00b0ff;           /* Theme Cyan */
+    --w: #fff;              /* Pure White */
+    --nav: #06060f;         /* Navigation Background */
+    --card: rgba(255, 255, 255, 0.07);        /* Card Background */
+    --card-border: rgba(255, 255, 255, 0.14); /* Card Border Color */
+}
+
+/* Enable smooth scrolling throughout the webpage */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Main body configurations */
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background: #050914;  /* Dark futuristic background */
+    color: var(--w);       /* Default text color (White) */
+    overflow-x: hidden;   /* Prevents accidental horizontal scrolling */
+    min-height: 100vh;
+}
+
+
+/* ── 2. BACKGROUND CANVAS ── */
+#particles {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none; /* Allows user to click elements behind the canvas */
+}
+
+
+/* ── 3. NAVIGATION BAR ── */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    height: 64px;
+    background: rgba(6, 6, 15, 0.88);
+    backdrop-filter: blur(18px);          /* Glassmorphism blur effect */
+    -webkit-backdrop-filter: blur(18px);  /* Compatibility for Safari */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+
+/* Brand Logo Layout */
+.logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-ring-wrap {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Rotating outer ring of the logo */
+.logo-ring {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: conic-gradient(var(--y) 0%, #e07000 50%, #1a0a00 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 0 18px rgba(245, 196, 0, 0.4);
+    animation: spin-slow 8s linear infinite; /* Infinite slow rotation */
+    flex-shrink: 0;
+}
+
+/* Keyframes for the slow spinning animation */
+@keyframes spin-slow {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.logo-inner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #06060f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.logo-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    color: var(--y);
+}
+
+.logo-tag {
+    font-size: 0.58rem;
+    letter-spacing: 2px;
+    color: var(--g);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 400;
+}
+
+
+/* ── 4. NAV LINKS & HAMBURGER ── */
+
+/* Hide standard links on smaller screens */
+.nav-links {
+    display: none;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Desktop configuration: Show nav links, hide mobile hamburger */
+@media (min-width: 820px) {
+    .nav-links {
+        display: flex;
+    }
+    .hamburger {
+        display: none;
+    }
+}
+
+/* Styling for individual desktop nav links */
+.nav-links a {
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    padding: 7px 16px;
+    border-radius: 30px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    transition: all 0.25s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Highlighting the active link */
+.nav-links a.active {
+    background: var(--o);
+    color: #fff;
+    box-shadow: 0 0 16px rgba(255, 87, 34, 0.4);
+}
+
+.nav-links .nl {
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 30px;
+}
+
+.nav-links .ns {
+    background: var(--g);
+    color: #001a0a;
+    font-weight: 700;
+}
+
+.nav-links .ns:hover {
+    background: #00c853;
+    box-shadow: 0 0 14px rgba(0, 230, 118, 0.5);
+}
+
+/* Mobile responsive hamburger menu button */
+.hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--w);
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+/* Animation mechanics: Morph 3 bars into an 'X' shape when open */
+.hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* ── 5. MOBILE DRAWER MENU ── */
+.drawer {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    z-index: 190;
+    background: rgba(6, 6, 15, 0.97);
+    backdrop-filter: blur(20px);
+    max-height: 0; /* Hidden by default */
+    overflow: hidden;
+    transition: max-height 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Smooth expansion when the drawer receives the 'open' class */
+.drawer.open {
+    max-height: 500px;
+}
+
+.drawer a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 16px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s;
+}
+
+.drawer a:hover,
+.drawer a.active {
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--y);
+}
+
+.drawer-icon {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+
+/* ── 6. HERO SECTION ── */
+.hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px 60px;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Background aesthetic lighting effects (Gradient Orbs) */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.orb1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(21, 101, 192, 0.35), transparent 70%);
+    top: -100px;
+    left: -150px;
+    animation: orb-drift 10s ease-in-out infinite alternate;
+}
+
+.orb2 {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(245, 196, 0, 0.12), transparent 70%);
+    bottom: -150px;
+    right: -180px;
+    animation: orb-drift 12s ease-in-out infinite alternate-reverse;
+}
+
+.orb3 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(0, 176, 255, 0.15), transparent 70%);
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: orb-pulse 6s ease-in-out infinite;
+}
+
+/* Keyframes for atmospheric drifting and breathing animations of Orbs */
+@keyframes orb-drift {
+    from { transform: translate(0, 0); }
+    to { transform: translate(40px, 25px); }
+}
+
+@keyframes orb-pulse {
+    0%, 100% { opacity: 0.6; transform: translateX(-50%) scale(1); }
+    50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+}
+
+
+/* ── 7. HERO BADGE ── */
+.hero-badge {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin-bottom: 36px;
+    animation: badge-in 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes badge-in {
+    from { opacity: 0; transform: scale(0.5) rotate(-20deg); }
+    to { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+.badge-ring-outer {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: conic-gradient(var(--y) 0deg, #b87800 90deg, #3a2400 180deg, var(--y) 360deg);
+    animation: spin-slow 6s linear infinite;
+}
+
+.badge-ring-inner {
+    position: absolute;
+    inset: 8px;
+    border-radius: 50%;
+    background: #06060f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Subtle vertical floating animation for the center graphic */
+.badge-bird {
+    font-size: 72px;
+    line-height: 1;
+    filter: drop-shadow(0 0 12px rgba(245, 196, 0, 0.6));
+    animation: bird-bob 3s ease-in-out infinite;
+}
+
+@keyframes bird-bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+
+/* ── 8. HERO TYPOGRAPHY & ANIMATIONS ── */
+.hero-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.8rem, 9vw, 5rem); /* Responsive fluid scaling font size */
+    font-weight: 900;
+    color: var(--y);
+    letter-spacing: clamp(2px, 1vw, 6px);
+    text-shadow: 0 0 40px rgba(245, 196, 0, 0.3);
+    margin-bottom: 10px;
+    animation: slide-up 0.7s 0.15s ease both;
+}
+
+.hero-tagline {
+    font-size: clamp(0.9rem, 3.5vw, 1.3rem);
+    color: var(--g);
+    font-weight: 400;
+    letter-spacing: 4px;
+    margin-bottom: 52px;
+    animation: slide-up 0.7s 0.25s ease both;
+}
+
+/* Smooth fade and slide up introduction effect */
+@keyframes slide-up {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* ── 9. CALL TO ACTION BUTTONS ── */
+.cta-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+    max-width: 360px;
+    animation: slide-up 0.7s 0.35s ease both;
+}
+
+/* Primary High-intensity Action Button */
+.btn-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 32px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #ff6d00, #ff1744);
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 6px 28px rgba(255, 87, 34, 0.45);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent);
+    pointer-events: none;
+}
+
+/* Interactive click and hover responsiveness */
+.btn-primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 40px rgba(255, 87, 34, 0.6);
+}
+
+.btn-primary:active {
+    transform: scale(0.97);
+}
+
+/* Secondary Translucent Glassmorphism Button */
+.btn-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 32px;
+    border-radius: 14px;
+    background: var(--card);
+    backdrop-filter: blur(12px);
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: 1px solid var(--card-border);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.14);
+    transform: translateY(-2px);
+}
+
+
+/* ── 10. FEATURES STRIP ── */
+.features {
+    display: flex;
+    gap: 12px;
+    margin-top: 56px;
+    animation: slide-up 0.7s 0.5s ease both;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Small grid info-cards */
+.feat {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 20px 22px;
+    min-width: 100px;
+    flex: 1 1 100px;
+    max-width: 130px;
+    text-align: center;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+}
+
+.feat::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.07), transparent 60%);
+}
+
+.feat:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Color mappings for card icons */
+.feat-icon { font-size: 2rem; margin-bottom: 8px; display: block; filter: drop-shadow(0 0 8px currentColor); }
+.feat-i1 { color: var(--y); }
+.feat-i2 { color: var(--c); }
+.feat-i3 { color: var(--g); }
+.feat-i4 { color: var(--o); }
+.feat-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; color: rgba(255, 255, 255, 0.8); display: block; }
+
+
+/* ── 11. STATS BAR ── */
+.stats {
+    display: flex;
+    gap: 0;
+    margin-top: 56px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--card-border);
+    animation: slide-up 0.7s 0.6s ease both;
+    width: 100%;
+    max-width: 500px;
+}
+
+.stat {
+    flex: 1;
+    padding: 18px 12px;
+    text-align: center;
+    background: var(--card);
+    border-right: 1px solid var(--card-border);
+    transition: background 0.2s;
+}
+
+.stat:last-child {
+    border-right: none;
+}
+
+.stat:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.stat-num {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--y);
+    display: block;
+}
+
+.stat-lbl {
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+
+/* ── 12. SCROLL CUE & BOUNCING ARROW ── */
+.scroll-cue {
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    animation: slide-up 1s 0.8s ease both;
+}
+
+/* CSS-drawn arrow showing downward path direction */
+.scroll-arrow {
+    width: 18px;
+    height: 18px;
+    border-right: 2px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    transform: rotate(45deg);
+    animation: arr-bounce 1.5s infinite; /* Seamless loop bouncing movement */
+}
+
+@keyframes arr-bounce {
+    0%, 100% { transform: rotate(45deg) translateY(0); }
+    50% { transform: rotate(45deg) translateY(5px); }
+}
+
+
+/* ── 13. ICONS, FOOTER & TOAST ALERTS ── */
+.ico {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+/* Toast message container (Positioned below the view scope initially) */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px); /* Hidden offset state */
+    background: rgba(0, 230, 118, 0.15);
+    border: 1px solid rgba(0, 230, 118, 0.4);
+    color: var(--g);
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    backdrop-filter: blur(12px);
+    z-index: 999;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+}
+
+/* Reveals toast systematically when class is modified by JavaScript */
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+}
+
+
+/* ── 14. RESPONSIVE DESIGN FOR SMALL MOBILE SCREENS ── */
+@media (max-width: 400px) {
+    .hero-badge {
+        width: 120px;
+        height: 120px;
+    }
+    .badge-bird {
+        font-size: 52px;
+    }
+    .stats {
+        flex-direction: column; 
+    }
+    .stat {
+        border-right: none;
+        border-bottom: 1px solid var(--card-border);
+    }
+}
+
+#myDiv {
+    display: flex; 
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+
+
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 24px 60px; 
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.content {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px; 
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.mainhed {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--y);
+    text-align: center;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px rgba(245, 196, 0, 0.2);
+}
+
+
+#uploadForm {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#uploadForm label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: -8px;
+}
+
+
+footer {
+    width: 100%;
+    height:5%
+    padding: 1px 1px;
+    margin-top: auto;
+    text-align: center;
+    background: rgba(6, 6, 15, 0.5);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 2;
+}

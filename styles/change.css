@@ -1,0 +1,76 @@
+#head ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+
+/* Content Card Styling */
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    margin: 0 0 30px 0;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.co {
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+/* Cyberpunk Input Box Style */
+.input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 14px 20px;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    font-size: 14px;
+    color: #f0f0f0;
+    font-family: 'Exo 2', sans-serif;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #378ADD;
+    background: rgba(55, 138, 221, 0.05);
+    box-shadow: 0 0 10px rgba(55, 138, 221, 0.15);
+}
+
+/* Dynamic Submit Button */
+.svbutton {
+    width: 100%;
+    background: #378ADD;
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+
+.svbutton:hover {
+    background: #2672be;
+    box-shadow: 0 0 15px rgba(55, 138, 221, 0.4);
+    transform: translateY(-1px);
+}

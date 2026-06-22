@@ -1,0 +1,16 @@
+# Ignore user uploaded files
+u/
+
+# Ignore OS-specific files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Ignore IDE configurations
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp

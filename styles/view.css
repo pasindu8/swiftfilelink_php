@@ -1,0 +1,110 @@
+
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+
+.mainhed {
+    font-family: 'Orbitron', sans-serif;
+    color: #f39c12; 
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(243, 156, 18, 0.3);
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-family: 'Exo 2', sans-serif;
+    color: #ffffff;
+}
+
+tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: background 0.3s ease;
+}
+
+tr:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+td {
+    padding: 18px 15px;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+
+td:first-child {
+    text-align: left;
+    font-weight: 500;
+    max-width: 300px;
+    word-break: break-all;
+}
+
+
+td:nth-child(2) {
+    color: #94a3b8;
+    text-align: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+}
+
+
+td:last-child {
+    text-align: right;
+}
+
+.do {
+    background: linear-gradient(135deg, #00ff87 0%, #60efff 100%);
+    color: #0b0f19 !important;
+    padding: 8px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(0, 255, 135, 0.3);
+    transition: all 0.3s ease;
+}
+
+.do:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 255, 135, 0.5);
+    filter: brightness(1.1);
+}
+
+.do1 {
+    background: rgba(255, 75, 75, 0.1);
+    color: #ff4b4b !important;
+    border: 1px solid #ff4b4b;
+    padding: 6px 18px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+    display: inline-block;
+    cursor: not-allowed;
+}

@@ -1,0 +1,391 @@
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --y: #f5c400;           
+    --g: #00e676;          
+    --o: #ff5722;           
+    --c: #00b0ff;           
+    --w: #fff;            
+    --nav: #06060f;       
+    --card: rgba(255, 255, 255, 0.03);       
+    --card-border: rgba(255, 255, 255, 0.08);
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: 'Rajdhani', sans-serif;
+    background: #050914; 
+    color: var(--w);      
+    overflow-x: hidden;   
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#head {
+    background-color: #0d1117;
+    border-bottom: 1px solid #21262d;
+    padding: 10px 24px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    z-index: 98;
+    display: flex;
+    align-items: center;
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.header-container .logoimg {
+    height: 42px;
+    object-fit: contain;
+    display: block;
+}
+
+.butiocn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.butiocn a {
+    text-decoration: none;
+    display: inline-flex;
+}
+
+.butiocn button {
+    position: relative;
+    background: transparent;
+    border: 1px solid #21262d;
+    color: #c9d1d9;
+    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.18s ease;
+    font-family: 'Material Symbols Outlined', sans-serif;
+    line-height: 1;
+}
+
+.butiocn button:hover {
+    background-color: #21262d;
+    border-color: #30363d;
+    color: #f0f6fc;
+}
+
+
+.butiocn button#menu {
+    border-color: #3fb950;
+    color: #3fb950;
+}
+
+.butiocn button#menu:hover {
+    background-color: rgba(63, 185, 80, 0.12);
+    border-color: #3fb950;
+}
+
+.butiocn .notification-badge {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #da3633;
+    color: #ffffff;
+    padding:5px;
+    font-size: 10px;
+    line-height: 1;
+    border-radius: 50%;
+    min-width: 16px;
+    text-align: center;
+    pointer-events: none;
+    border: 1.5px solid #0d1117;
+}
+
+
+.container {
+    display: flex;
+    flex: 1;
+    margin-top: 85px; 
+    margin-bottom: 80px; 
+    padding: 0 24px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+.content {
+    flex: 1;
+    max-width: 2000px; 
+    width: 100%;
+    background: #0d1117;
+    border: 1px solid #21262d;
+    border-radius: 16px;
+    padding: 45px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+
+.content .hed {
+    display: block;
+    font-size: 24px;
+    font-weight: 700;
+    color: #8b949e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border-left: 3px solid #3fb950;
+    padding-left: 10px;
+}
+
+
+.profile-avatar-wrap {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+
+.profile-avatar-wrap img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #3fb950;
+    background-color: #161b22;
+    box-shadow: 0 0 20px rgba(63, 185, 80, 0.15);
+}
+
+
+.profile-info-summary {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.profile-info-summary h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #f0f6fc;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+.profile-info-summary samp {
+    font-size: 14px;
+    color: #8b949e;
+    font-family: inherit;
+}
+
+
+.content h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #3fb950;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin: 35px 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #21262d;
+}
+
+
+.info-row {
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    background: rgba(22, 27, 34, 0.4);
+    border: 1px solid #21262d;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    gap: 20px;
+    transition: all 0.2s ease;
+}
+
+.info-row:hover {
+    background: #161b22;
+    border-color: #30363d;
+    transform: translateX(4px);
+}
+
+.info-label {
+    font-size: 13px;
+    color: #8b949e;
+    min-width: 160px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    font-size: 15px;
+    color: #e6edf3;
+    word-break: break-all;
+}
+
+
+footer {
+    position: fixed;     
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #0d1117;
+    border-top: 1px solid #21262d;
+    z-index: 9999;
+    font-size: 18px;
+    color: #6e7681;
+}
+
+footer a {
+    color: #3fb950;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0d1117;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #30363d;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #484f58;
+}
+
+.logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo-ring-wrap {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Rotating outer ring of the logo */
+.logo-ring {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: conic-gradient(var(--y) 0%, #e07000 50%, #1a0a00 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 0 18px rgba(245, 196, 0, 0.4);
+    animation: spin-slow 8s linear infinite; /* Infinite slow rotation */
+    flex-shrink: 0;
+}
+
+/* Keyframes for the slow spinning animation */
+@keyframes spin-slow {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.logo-inner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #06060f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.logo-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 1.5px;
+    color: var(--y);
+}
+
+.logo-tag {
+    font-size: 0.58rem;
+    letter-spacing: 2px;
+    color: var(--g);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    footer{
+        font-size: 14px;
+    }
+    .container {
+        margin-top: 80px;
+        margin-bottom: 80px;
+        padding: 0 16px;
+    }
+
+    .content {
+        padding: 30px 20px;
+    }
+
+    .info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 14px;
+    }
+
+    .info-label {
+        min-width: 100%;
+        font-size: 11px;
+    }
+
+    .info-value {
+        font-size: 14px;
+    }
+}

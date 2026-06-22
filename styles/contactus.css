@@ -1,0 +1,126 @@
+
+.page-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    color: #ffffff;
+    letter-spacing: 1px;
+    margin: 40px 0 10px 0;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    max-width: 1000px;
+    width: 90%;
+    margin: 20px auto 40px auto;
+    gap: 40px;
+    flex-grow: 1;
+    align-items: flex-start;
+}
+
+form {
+    flex: 1;
+    background: #0f1117;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+}
+
+form label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.inuttxet, textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 14px 16px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #ffffff;
+    font-family: 'Exo 2', sans-serif;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+textarea {
+    height: 140px;
+    resize: vertical;
+}
+
+.inuttxet:focus, textarea:focus {
+    outline: none;
+    border-color: #378ADD;
+    background: rgba(55, 138, 221, 0.05);
+    box-shadow: 0 0 10px rgba(55, 138, 221, 0.15);
+}
+
+form button[type="submit"] {
+    width: 100%;
+    background: #378ADD;
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    border-radius: 10px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+form button[type="submit"]:hover {
+    background: #2672be;
+    box-shadow: 0 0 15px rgba(55, 138, 221, 0.4);
+    transform: translateY(-1px);
+}
+
+.co {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.01);
+    border-left: 3px solid #378ADD;
+    padding: 30px;
+    border-radius: 0 16px 16px 0;
+    box-sizing: border-box;
+}
+
+.co p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; 
+        gap: 30px;              
+        width: 95%;             
+    }
+
+    form {
+        width: 100%;
+        padding: 24px;          
+    }
+
+    .co {
+        width: 100%;
+        border-left: none;
+        border-top: 3px solid #378ADD; 
+        border-radius: 0 0 16px 16px;   
+        padding: 24px 16px;
+    }
+}

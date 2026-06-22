@@ -1,0 +1,24 @@
+.buse{
+    width: 100%;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #3fb950, #00b0ff); 
+    border: none;
+    border-radius: 12px;
+    color: #0d1117;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(63, 185, 80, 0.2);
+}
+a:link, a:visited {
+text-decoration: none;
+}
+a:hover, a:active {
+text-decoration: none;
+}

@@ -1,0 +1,84 @@
+
+        /* Notifications Content Wrapper */
+        .content {
+            flex-grow: 1;
+            background: #0f1117;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .content h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            color: #ffffff;
+            margin: 0 0 30px 0;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .co {
+            width: 100%;
+        }
+
+        /* Modern Notification Card Item Style */
+        .noti-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            transition: all 0.2s ease;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        /* Unread Notification (nread == 1) - Light Cyan highlight */
+        .noti-unread {
+            background: rgba(55, 138, 221, 0.06);
+            border-color: rgba(55, 138, 221, 0.2);
+        }
+        .noti-unread .noti-icon {
+            color: #378ADD;
+            text-shadow: 0 0 10px rgba(55, 138, 221, 0.5);
+        }
+        .noti-unread .noti-text {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        /* Read Notification (nread != 1) - Soft dark blend */
+        .noti-read {
+            background: rgba(255, 255, 255, 0.01);
+            border-color: rgba(255, 255, 255, 0.03);
+        }
+        .noti-read .noti-icon {
+            color: rgba(255, 255, 255, 0.2);
+        }
+        .noti-read .noti-text {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Hover effect on cards */
+        .noti-link:hover .noti-item {
+            transform: translateX(4px);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+        .noti-link:hover .noti-unread {
+            background: rgba(55, 138, 221, 0.1);
+            border-color: #378ADD;
+        }
+
+        .noti-icon {
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+        }
+
+        .noti-text {
+            font-size: 14px;
+            line-height: 1.4;
+        }

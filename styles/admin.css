@@ -1,0 +1,236 @@
+    /* Global Reset & Dark Theme */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0b0d13;
+            color: #c9d1d9;
+            font-family: 'Exo 2', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navigation Header */
+        header {
+            background: rgba(15, 17, 23, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 10px 4%;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logoimg {
+            max-height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .butiocn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Admin Header Buttons */
+        .butiocn button {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.6);
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .butiocn button:hover {
+            background: rgba(55, 138, 221, 0.1);
+            border-color: #378ADD;
+            color: #378ADD;
+            box-shadow: 0 0 10px rgba(55, 138, 221, 0.2);
+        }
+
+        /* Notification Badge Alert */
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ff3333;
+            color: white;
+            font-size: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 20px;
+            box-shadow: 0 0 8px rgba(255, 51, 51, 0.6);
+        }
+
+        /* Dashboard Layout Split (Content & Sidebar) */
+        .container {
+            display: flex;
+            max-width: 1200px;
+            width: 90%;
+            margin: 40px auto;
+            gap: 30px;
+            flex-grow: 1;
+        }
+
+        /* Profile Details Card Styling */
+        .content {
+            flex: 1;
+            background: #0f1117;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Profile Header Elements */
+        .hed {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            color: #ffffff;
+            letter-spacing: 1px;
+            margin-top: 0;
+            text-transform: uppercase;
+        }
+
+        .admin-avatar {
+            border: 3px solid #378ADD;
+            border-radius: 50%;
+            padding: 6px;
+            background: #161b22;
+            box-shadow: 0 0 20px rgba(55, 138, 221, 0.25);
+            object-fit: cover;
+        }
+
+        .admin-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            color: #ffffff;
+            margin: 15px 0 5px 0;
+        }
+
+        .welcome-tag {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.5px;
+        }
+
+        /* Section Info Styling */
+        .info-section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            color: #378ADD;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(55, 138, 221, 0.2);
+            padding-bottom: 8px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .info-group {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .info-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+        }
+
+        .info-value {
+            font-size: 15px;
+            font-weight: 600;
+            color: #f0f0f0;
+        }
+
+        /* Footer */
+        footer {
+            background: #090d13;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .footer {
+            margin: 0;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 0.5px;
+        }
+
+        /* Page Loading Transition */
+        .animate-bottom {
+            position: relative;
+            animation: animatebottom 0.4s ease-out;
+        }
+
+        @keyframes animatebottom {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+       /* Responsive UI Optimization */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+        width: 95%;
+        margin: 20px auto;
+    }
+    .content {
+        padding: 30px 20px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .hed {
+        font-size: 22px; 
+    }
+
+    .admin-name {
+        font-size: 20px;
+    }
+
+    .info-group {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 12px 15px;
+    }
+
+    .info-label {
+        font-size: 11px;
+    }
+
+    .info-value {
+        width: 100%;
+        text-align: left;
+        font-size: 14px;
+        word-break: break-word; 
+    }
+}

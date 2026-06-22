@@ -1,0 +1,145 @@
+/* Main Headline */
+        .page-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            color: #ffffff;
+            letter-spacing: 1px;
+            margin: 40px 0 10px 0;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        /* FAQ Container Box */
+        .faq-container {
+            max-width: 800px;
+            width: 90%;
+            margin: 20px auto 50px auto;
+            background: #0f1117;
+            padding: 35px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-sizing: border-box;
+        }
+
+        /* Interactive Accordion Styling */
+        .faq-item {
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.01);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* Accordion Header (Question Button) */
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 18px 20px;
+            text-align: left;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 600;
+            font-family: 'Exo 2', sans-serif;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            transition: background 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(55, 138, 221, 0.04);
+            color: #378ADD;
+        }
+
+        /* Expand Icon Indicator */
+        .faq-icon {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        /* Accordion Body (Answer Area) */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        .faq-answer p {
+            margin: 0;
+            padding: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .faq-answer a {
+            color: #378ADD;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .faq-answer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Active State Classes (When Clicked) */
+        .faq-item.active {
+            border-color: rgba(55, 138, 221, 0.3);
+            background: rgba(55, 138, 221, 0.02);
+            box-shadow: 0 0 15px rgba(55, 138, 221, 0.05);
+        }
+
+        .faq-item.active .faq-question {
+            color: #378ADD;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+            color: #378ADD;
+        }
+
+        /* Action Buttons */
+        .btn-home {
+            display: inline-block;
+            background: #378ADD;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+
+        .btn-home:hover {
+            background: #2672be;
+            box-shadow: 0 0 15px rgba(55, 138, 221, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .animate-bottom {
+            position: relative;
+            animation: animatebottom 0.4s ease-out;
+        }
+
+        @keyframes animatebottom {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header ul { justify-content: center; }
+            .faq-container { padding: 25px 15px; }
+        }

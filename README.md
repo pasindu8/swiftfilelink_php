@@ -1,7 +1,7 @@
 # 🚀 SwiftFileLink (PHP)
 
 <p align="center">
-  <img src="logo.png" alt="SwiftFileLink Logo" width="200"/>
+  <img src="logo2.png" alt="SwiftFileLink Logo" width="200"/>
 </p>
 
 <p align="center">
@@ -19,7 +19,7 @@
 
 ## 📖 Overview
 
-**SwiftFileLink** is a sleek, web-based file sharing utility built with PHP, MySQL, and modern Vanilla CSS/JS. It allows users and guests to upload files and generate a temporary **5-digit PIN**. Anyone with the PIN can securely download the files before their designated expiration date or download limit is reached.
+**SwiftFileLink** is a sleek, web-based file sharing utility built with PHP, MySQL, and modern Vanilla CSS/JS. It allows users and guests to upload files and generate a temporary **4-digit PIN**. Anyone with the PIN can securely download the files before their designated expiration date or download limit is reached.
 
 ---
 
@@ -27,7 +27,7 @@
 
 ### 👤 User Features
 * 📤 **Multi-File Upload**: Upload multiple files simultaneously with ease.
-* 🔑 **PIN-Protected Access**: Secure your files with unique, custom-generated 5-digit PINs.
+* 🔑 **PIN-Protected Access**: Secure your files with unique, custom-generated 4-digit PINs.
 * ⏳ **Custom Expiry**: Define exactly when files should expire and be automatically deleted from the server.
 * 📉 **Download Limits**: Set a maximum download count to automatically restrict access after a specific number of downloads.
 * 🔐 **Secure Accounts**: Complete registration and login system with active session tracking.
